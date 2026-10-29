@@ -70,7 +70,7 @@ Bring your own Unix-like environment. macOS and Linux are the tested paths.
 | [03-approval-triage](./03-approval-triage/README.md) | Make human approval queues reviewable         | Ready             |
 | [04-tool-vetting](./04-tool-vetting/README.md)       | Vet and pin tool definitions                  | Ready             |
 | [05-least-privilege](./05-least-privilege/README.md) | Learn least privilege from audited traces     | Ready             |
-| [06-policy-compiler](./06-policy-compiler/)          | Turn written policy into reviewable criteria  | Demo only, so far |
+| [06-policy-compiler](./06-policy-compiler/README.md) | Turn written policy into reviewable criteria  | Ready             |
 | [07-red-team](./07-red-team/)                        | Red-team the judge with a model               | Demo only, so far |
 | [08-trace-audit](./08-trace-audit/)                  | Audit complete agent runs after the fact      | Demo only, so far |
 
