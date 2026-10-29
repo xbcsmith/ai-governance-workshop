@@ -1,10 +1,11 @@
 # Triaging Agent Approvals for Humans: Demo Script
 
-Companion to the first demo (`agent_judge_demo.py`). Human-in-the-loop approval
-is a common control for agent actions, and it fails in a predictable way: the
-queue grows, every request looks alike, and reviewers start clicking "approve"
-(approval fatigue). This demo uses AI to **help the reviewer decide faster,
-without letting the AI decide for them**.
+Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
+(`agent_judge_demo.py`). Human-in-the-loop approval is a common control for
+agent actions, and it fails in a predictable way: the queue grows, every request
+looks alike, and reviewers start clicking "approve" (approval fatigue). This
+demo uses AI to **help the reviewer decide faster, without letting the AI decide
+for them**.
 
 A queue of nine pending actions is triaged: risky items rise to the top, routine
 ones are grouped, and each item gets a short card. Granite 4.1 8B writes the
@@ -113,9 +114,13 @@ The last item is an attack on the triage layer itself.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 03-approval-triage/demo
 ```
 
 Start both servers, each in its own terminal:

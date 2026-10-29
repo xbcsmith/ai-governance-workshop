@@ -70,5 +70,5 @@ The demo guide has the full run of show, talking points and troubleshooting:
 ## Next
 
 The next chapters stand on their own. A good one to take next is
-[03-approval-triage](../03-approval-triage/), which asks what happens when a
-person must approve what the agent wants to do.
+[03-approval-triage](../03-approval-triage/README.md), which asks what happens
+when a person must approve what the agent wants to do.

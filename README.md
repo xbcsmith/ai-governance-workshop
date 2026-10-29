@@ -27,7 +27,7 @@ Every chapter folder has the same shape:
 | Part         | What it is                                                                 |
 | ------------ | -------------------------------------------------------------------------- |
 | `README.md`  | Outline, learning objectives and a map of the files in the folder          |
-| Lesson files | `00-intro.md`, `01_...md` and so on. The concept, then the build, in order |
+| Lesson files | `00-intro.md`, `01-...md` and so on. The concept, then the build, in order |
 | `solution/`  | A checkpoint script for each lesson, so nobody gets stuck                  |
 | `demo/`      | The full demo script and its presenter guide, for the impatient            |
 
@@ -62,19 +62,28 @@ Bring your own Unix-like environment. macOS and Linux are the tested paths.
 
 ## Workshop outline
 
-| Chapter                                              | Topic                                         | Status |
-| ---------------------------------------------------- | --------------------------------------------- | ------ |
-| [00-prereqs](./00-prereqs/README.md)                 | Install tools, start the two model servers    | Ready  |
-| [01-intro](./01-intro/README.md)                     | Why a judge, the threat model, the four gates | Ready  |
-| [02-agent-judge](./02-agent-judge/README.md)         | Guard an agent at four checkpoints            | Ready  |
-| [03-approval-triage](./03-approval-triage/README.md) | Make human approval queues reviewable         | Ready  |
-| [04-tool-vetting](./04-tool-vetting/README.md)       | Vet and pin tool definitions                  | Ready  |
-| [05-least-privilege](./05-least-privilege/README.md) | Learn least privilege from audited traces     | Ready  |
-| [06-policy-compiler](./06-policy-compiler/README.md) | Turn written policy into reviewable criteria  | Ready  |
-| [07-red-team](./07-red-team/README.md)               | Red-team the judge with a model               | Ready  |
-| [08-trace-audit](./08-trace-audit/README.md)         | Audit complete agent runs after the fact      | Ready  |
+| Chapter                                              | Topic                                         | Servers needed                         |
+| ---------------------------------------------------- | --------------------------------------------- | -------------------------------------- |
+| [00-prereqs](./00-prereqs/README.md)                 | Install tools, start the two model servers    | None yet                               |
+| [01-intro](./01-intro/README.md)                     | Why a judge, the threat model, the four gates | None (concepts only)                   |
+| [02-agent-judge](./02-agent-judge/README.md)         | Guard an agent at four checkpoints            | Agent and judge                        |
+| [03-approval-triage](./03-approval-triage/README.md) | Make human approval queues reviewable         | Judge, then agent from lesson 3        |
+| [04-tool-vetting](./04-tool-vetting/README.md)       | Vet and pin tool definitions                  | Judge (agent only for the last lesson) |
+| [05-least-privilege](./05-least-privilege/README.md) | Learn least privilege from audited traces     | Judge, then agent from lesson 4        |
+| [06-policy-compiler](./06-policy-compiler/README.md) | Turn written policy into reviewable criteria  | Agent, then judge from lesson 4        |
+| [07-red-team](./07-red-team/README.md)               | Red-team the judge with a model               | Agent, then judge from lesson 3        |
+| [08-trace-audit](./08-trace-audit/README.md)         | Audit complete agent runs after the fact      | Judge only                             |
 
-Chapters 03 to 08 each stand on their own once you have finished 00 to 02.
+Chapters 03 to 08 each begin with a lesson that needs no model at all, so you
+can read and run something before you start a server.
+
+### Suggested order
+
+Take chapters 00, 01 and 02 first, in order. They set up the tools, the
+vocabulary and the judge function that every later chapter reuses. After that
+you can take chapters 03 to 08 in any order, though a few refer back to earlier
+ones (the least-privilege chapter reads the same trace format as the trace-audit
+chapter, and the red-team chapter builds on the criteria from chapter 02).
 
 ## Getting started
 
@@ -97,7 +106,6 @@ ai-governance-workshop/
     demo/                the full demo script and presenter guide
   03-approval-triage/ ... 08-trace-audit/
   src/                   shared helpers used by every chapter
-  presentation/          the slide decks
   troubleshooting.md     fixes for the problems people hit most
 ```
 

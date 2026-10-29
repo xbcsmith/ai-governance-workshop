@@ -7,10 +7,10 @@ then **guarded**, so the audience sees the attack land and then see it stopped.
 Everything is local. The tools are mocks (nothing is read from disk or emailed)
 and the "secrets" are fake.
 
-| File                  | Purpose                                             |
-| --------------------- | --------------------------------------------------- |
-| `agent_judge_demo.py` | The demo                                            |
-| Slide deck            | 6 slides: cover, threats, idea, gates, demo, limits |
+| File                  | Purpose    |
+| --------------------- | ---------- |
+| `agent_judge_demo.py` | The demo   |
+| `README.md`           | This guide |
 
 ---
 
@@ -62,9 +62,13 @@ and the "secrets" are fake.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp (Granite 4.1 needs a recent build)
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 02-agent-judge/demo
 ```
 
 Start two servers, each in its own terminal. The first run downloads the models.
@@ -99,7 +103,8 @@ screen before you start.
       warm
 - [ ] Saved a recorded run as a backup:
       `python agent_judge_demo.py | tee demo_output.txt`
-- [ ] Closed memory-heavy apps (two 4-bit 8B models plus your slides on 24 GB)
+- [ ] Closed memory-heavy apps (two 4-bit 8B models plus your presentation
+      software on 24 GB)
 - [ ] Noted which scenarios behaved differently from this script (see "Scenario
       walkthrough")
 
@@ -107,12 +112,12 @@ screen before you start.
 
 ## Run of show
 
-| Step | Slide                      | Terminal                     |
-| ---- | -------------------------- | ---------------------------- |
-| 1    | 1–3 (cover, threats, idea) | Nothing yet                  |
-| 2    | 4 (four gates)             | Scenario 1 (control)         |
-| 3    | 5 (demo)                   | Scenarios 2–5, one at a time |
-| 4    | 6 (limits)                 | Optional: one `--think` run  |
+| Step | Talking point            | Terminal                     |
+| ---- | ------------------------ | ---------------------------- |
+| 1    | The threats and the idea | Nothing yet                  |
+| 2    | The four gates           | Scenario 1 (control)         |
+| 3    | The demo                 | Scenarios 2–5, one at a time |
+| 4    | The limits               | Optional: one `--think` run  |
 
 Run one scenario at a time so you can talk between them:
 
@@ -243,7 +248,7 @@ whole suite.
 
 ---
 
-## Closing (slide 6)
+## Closing
 
 Make these four points:
 
@@ -252,9 +257,9 @@ Make these four points:
 3. Fail closed: an unparseable verdict is a flag, not a pass.
 4. At 8B this suits spot-checks and monitoring, not strict-latency guardrails.
 
-One more honest note if asked: the accuracy figures on slide 3 are from the
-model card for the full-precision models. The demo uses 4-bit quantized
-versions, so verdicts can differ slightly.
+One more honest note if asked: accuracy figures from the model card are for the
+full-precision models. The demo uses 4-bit quantized versions, so verdicts can
+differ slightly.
 
 ---
 

@@ -1,10 +1,10 @@
 # Least-Privilege Suggestions from Agent Traces: Demo Script
 
-Companion to the first demo (`agent_judge_demo.py`). The cheapest way to stop an
-agent doing something is to not let it. But most agents run with whatever
-permissions were convenient on day one. This demo mines logged agent runs for
-what the agent **legitimately needs** and proposes a much smaller permission
-set.
+Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
+(`agent_judge_demo.py`). The cheapest way to stop an agent doing something is to
+not let it. But most agents run with whatever permissions were convenient on day
+one. This demo mines logged agent runs for what the agent **legitimately needs**
+and proposes a much smaller permission set.
 
 The catch, and the most important idea in the demo: **if the logs contain
 hijacked or misbehaving runs, learning permissions from them whitelists the bad
@@ -98,9 +98,13 @@ and other layers must take over.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 05-least-privilege/demo
 ```
 
 Start both servers, each in its own terminal:

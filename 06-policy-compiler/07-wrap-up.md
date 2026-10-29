@@ -75,4 +75,4 @@ Do not present these as accuracy figures.
 
 We have measured a criterion with tests a model wrote. The next chapter asks a
 harder question: what does the judge miss when a model writes the attacks?
-[07-red-team](../07-red-team/).
+[07-red-team](../07-red-team/README.md).

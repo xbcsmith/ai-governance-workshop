@@ -50,15 +50,15 @@ next is the point: defense in depth.
 The first chapter guards the agent while it runs. The rest cover everything
 around it.
 
-| Chapter            | Layer              | Question it answers                                      |
-| ------------------ | ------------------ | -------------------------------------------------------- |
-| 02-agent-judge     | Runtime            | Can we stop a bad action as it happens                   |
-| 03-approval-triage | Human in the loop  | Can people review approvals without rubber-stamping      |
-| 04-tool-vetting    | Supply chain       | Are the tool definitions themselves trustworthy          |
-| 05-least-privilege | Permissions        | Can the agent be allowed to do less in the first place   |
-| 06-policy-compiler | Authoring controls | Can we turn written policy into criteria we can test     |
-| 07-red-team        | Testing the judge  | What does the judge miss when a model writes the attacks |
-| 08-trace-audit     | After the fact     | Did the whole run match the user's goal                  |
+| Chapter                                               | Layer              | Question it answers                                      |
+| ----------------------------------------------------- | ------------------ | -------------------------------------------------------- |
+| [02-agent-judge](../02-agent-judge/README.md)         | Runtime            | Can we stop a bad action as it happens                   |
+| [03-approval-triage](../03-approval-triage/README.md) | Human in the loop  | Can people review approvals without rubber-stamping      |
+| [04-tool-vetting](../04-tool-vetting/README.md)       | Supply chain       | Are the tool definitions themselves trustworthy          |
+| [05-least-privilege](../05-least-privilege/README.md) | Permissions        | Can the agent be allowed to do less in the first place   |
+| [06-policy-compiler](../06-policy-compiler/README.md) | Authoring controls | Can we turn written policy into criteria we can test     |
+| [07-red-team](../07-red-team/README.md)               | Testing the judge  | What does the judge miss when a model writes the attacks |
+| [08-trace-audit](../08-trace-audit/README.md)         | After the fact     | Did the whole run match the user's goal                  |
 
 ---
 

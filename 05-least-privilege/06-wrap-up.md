@@ -25,7 +25,9 @@ The script in [demo/](./demo/README.md) has the same pipeline. It adds:
 
 ### Using your own traces
 
-One JSON object per line:
+The trace format is the same one the
+[trace-audit chapter](../08-trace-audit/README.md) uses. One JSON object per
+line:
 
 ```json
 {
@@ -94,4 +96,5 @@ more than a handful of runs.
 ## Next
 
 Policy decides what an agent may do. The next chapter asks where the criteria
-behind those checks come from: [06-policy-compiler](../06-policy-compiler/).
+behind those checks come from:
+[06-policy-compiler](../06-policy-compiler/README.md).

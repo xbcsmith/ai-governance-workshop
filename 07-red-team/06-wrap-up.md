@@ -71,4 +71,4 @@ Do not present these as benchmark results.
 ## Next
 
 One chapter left. We have gated a run as it happens. The last chapter reviews
-whole runs after the fact: [08-trace-audit](../08-trace-audit/).
+whole runs after the fact: [08-trace-audit](../08-trace-audit/README.md).

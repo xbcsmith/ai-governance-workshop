@@ -1,9 +1,10 @@
 # Compiling a Security Policy into Judge Criteria: Demo Script
 
-Companion to the first demo (`agent_judge_demo.py`). There, the custom criteria
-("the response contains no secrets", "the tool call only does what the user
-asked") were written by hand. This demo asks: can a model draft them **from your
-written policy**, can a judge check the drafts, and where does the human fit in?
+Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
+(`agent_judge_demo.py`). There, the custom criteria ("the response contains no
+secrets", "the tool call only does what the user asked") were written by hand.
+This demo asks: can a model draft them **from your written policy**, can a judge
+check the drafts, and where does the human fit in?
 
 The pipeline: Granite 4.1 8B reads a policy, splits it into rules, picks a
 checkpoint for each, drafts a criterion, and writes test cases. Granite Guardian
@@ -76,9 +77,13 @@ it gets `REVIEW`. These thresholds are arbitrary, so adjust them.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 06-policy-compiler/demo
 ```
 
 Start both servers, each in its own terminal:
@@ -126,7 +131,7 @@ curl -s http://127.0.0.1:8081/v1/models | jq .
 English, numbered rules. The question is how it becomes something a judge can
 enforce."
 
-Show the seven rules on a slide or in the terminal.
+Show the seven rules on screen or in the terminal.
 
 ### Step 2: Compile
 

@@ -27,7 +27,9 @@ import random
 
 ## Your own traces
 
-Use `--traces my_traces.jsonl`. One JSON object per line:
+Use `--traces my_traces.jsonl`. The format is the one the
+[least-privilege chapter](../05-least-privilege/README.md) reads, so one log can
+feed both. One JSON object per line:
 
 ```json
 {

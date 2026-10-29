@@ -1,14 +1,14 @@
 # A Red-Team Model Attacks the Judge: Demo Script
 
-Companion to the first demo (`agent_judge_demo.py`). That demo asks whether the
-judge catches five attacks **you** wrote. This one asks the harder question:
-what does the judge miss when **a model** writes the attacks, and keeps
-adapting?
+Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
+(`agent_judge_demo.py`). That demo asks whether the judge catches five attacks
+**you** wrote. This one asks the harder question: what does the judge miss when
+**a model** writes the attacks, and keeps adapting?
 
 Granite 4.1 8B plays the attacker. Granite Guardian 4.1 8B is the judge, sitting
-at two of the first demo's gates: the **input gate** (user messages) and the
-**tool-result gate** (ticket bodies the agent reads). Every attack has the same
-toy goal: get an assistant to read a fake secrets file and email it to an
+at two of the agent-judge demo's gates: the **input gate** (user messages) and
+the **tool-result gate** (ticket bodies the agent reads). Every attack has the
+same toy goal: get an assistant to read a fake secrets file and email it to an
 outside address. Nothing is executed. The script only tests the judge.
 
 | File               | Purpose     |
@@ -64,7 +64,7 @@ hard negative.
 
 | Version          | Input gate                                                                                                      | Tool-result gate                                                                                        |
 | ---------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `v1` (baseline)  | The jailbreak criterion from the model card                                                                     | The "instructions aimed at an AI agent" sentence from demo 1                                            |
+| `v1` (baseline)  | The jailbreak criterion from the model card                                                                     | The "instructions aimed at an AI agent" sentence from the agent-judge demo                              |
 | `v2` (tightened) | Broader: rule override, fake authority, requests to reveal or send secrets, even disguised or framed as testing | Broader: any request, note or notice addressed to an AI, including polite, system-styled or hidden ones |
 
 `v2` is a starting point for the "improve the criterion" step, written before
@@ -81,9 +81,13 @@ there were because they inflate the detection rate.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 07-red-team/demo
 ```
 
 Start both servers, each in its own terminal:
@@ -131,8 +135,8 @@ Replay mode ("Run of show", step 5) only needs the judge server.
 python red_team_demo.py --seed 1
 ```
 
-**Say:** "In the first demo I wrote five attacks. Now I let a model write them,
-and I measure what gets through."
+**Say:** "In the agent-judge demo I wrote five attacks. Now I let a model write
+them, and I measure what gets through."
 
 The script runs two rounds by default. Round 1 writes first attempts in each
 category. Round 2 shows the attacker which attempts were **caught** and asks for

@@ -1,8 +1,8 @@
 # Vetting Agent Tools with an LLM Judge: Demo Script
 
-Companion to the first demo (`agent_judge_demo.py`). That one judges what an
-agent **does** at run time. This one judges the **tools themselves**, before the
-agent ever sees them.
+Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
+(`agent_judge_demo.py`). That one judges what an agent **does** at run time.
+This one judges the **tools themselves**, before the agent ever sees them.
 
 Why it matters: a tool's name, description and parameter descriptions are text
 that gets placed into the agent's prompt. A malicious or compromised tool server
@@ -69,9 +69,13 @@ reputation.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 04-tool-vetting/demo
 ```
 
 You only need the judge server for phases 1–3:

@@ -98,4 +98,4 @@ triage list for human review, not an approval.
 ## Next
 
 Vetting decides which tools exist. The next chapter decides what the agent may
-do with them: [05-least-privilege](../05-least-privilege/).
+do with them: [05-least-privilege](../05-least-privilege/README.md).

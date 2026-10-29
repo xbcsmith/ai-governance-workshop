@@ -72,6 +72,6 @@ Do not claim time saved unless you time it with real reviewers.
 ## Next
 
 The runtime and human layers are done. The next chapters go around them:
-[04-tool-vetting](../04-tool-vetting/) vets the tools before the agent sees
-them, and [05-least-privilege](../05-least-privilege/) shrinks what the agent
-may do.
+[04-tool-vetting](../04-tool-vetting/README.md) vets the tools before the agent
+sees them, and [05-least-privilege](../05-least-privilege/README.md) shrinks
+what the agent may do.

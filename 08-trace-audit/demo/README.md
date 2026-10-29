@@ -1,7 +1,8 @@
 # Auditing Agent Traces with an LLM Judge: Demo Script
 
-Companion to the first demo (`agent_judge_demo.py`). That one gates each step
-**while the agent runs**. This one reviews **whole recorded runs afterwards**.
+Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
+(`agent_judge_demo.py`). That one gates each step **while the agent runs**. This
+one reviews **whole recorded runs afterwards**.
 
 Why audit after the fact when you already have gates? Three reasons:
 
@@ -79,9 +80,13 @@ it finds the deviation.
 
 ```bash
 brew install llama.cpp        # or: brew upgrade llama.cpp
-python3 -m venv .venv/ai_govern_ai
-source .venv/ai_govern_ai/bin/activate
-pip install -U transformers jinja2
+# from the repository root (see 00-prereqs):
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r src/requirements.txt
+
+# the commands in this guide run from this folder:
+cd 08-trace-audit/demo
 
 llama-server -hf ibm-granite/granite-guardian-4.1-8b-GGUF:Q4_K_M --port 8081 -c 8192 --special
 ```
