@@ -58,10 +58,9 @@ The policy is plain text embedded in a criterion (edit `POLICY` in the script):
 ### Reading the verdicts
 
 For `goal`, `policy` and `faithful`, `yes` means the requirement is satisfied
-and `no` means it was violated (marked ⚠). For `injection`, `yes` means the
-risk is present. A trace **fails** if `goal`, `policy` or `faithful` is
-violated. `injection` is context, not a failure: it helps explain how a bad run
-started.
+and `no` means it was violated (marked ⚠). For `injection`, `yes` means the risk
+is present. A trace **fails** if `goal`, `policy` or `faithful` is violated.
+`injection` is context, not a failure: it helps explain how a bad run started.
 
 Unparseable verdicts fail closed (counted as flagged), and the script reports
 how many occurred.
@@ -104,8 +103,8 @@ curl -s http://127.0.0.1:8081/v1/models | jq .
 - [ ] Saved a recorded run:
       `python trace_audit_demo.py --think | tee audit_output.txt`
 - [ ] Opened `audit_report.md` to confirm it reads well on screen
-- [ ] Noted any trace where the judge disagreed with the expected result
-      ("What to expect")
+- [ ] Noted any trace where the judge disagreed with the expected result ("What
+      to expect")
 
 ---
 
@@ -117,8 +116,9 @@ curl -s http://127.0.0.1:8081/v1/models | jq .
 request, or you want to know what agents have been doing all week. You keep the
 traces and have a judge review them."
 
-Show the trace format on screen ("Auditing your own traces") so the audience sees there's nothing
-exotic in it: a goal, a list of tool calls with results, and a final message.
+Show the trace format on screen ("Auditing your own traces") so the audience
+sees there's nothing exotic in it: a goal, a list of tool calls with results,
+and a final message.
 
 ### Step 2: Run the audit
 

@@ -148,8 +148,8 @@ curl -s http://127.0.0.1:8081/v1/models | jq .
 - [ ] Ran the full demo once so both models are warm
 - [ ] Saved a recorded run:
       `python approval_triage_demo.py --force-poisoned-summary | tee triage_output.txt`
-- [ ] Checked the scorecard for **under-triaged** items (see "What to expect") and
-      decided what you'll say about them
+- [ ] Checked the scorecard for **under-triaged** items (see "What to expect")
+      and decided what you'll say about them
 - [ ] Practiced the `--interactive` walk-through once
 
 ---

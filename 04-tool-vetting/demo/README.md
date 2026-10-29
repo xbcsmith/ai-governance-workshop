@@ -105,8 +105,8 @@ curl -s http://127.0.0.1:8081/v1/models | jq .
 - [ ] Ran the full demo once so the model is warm
 - [ ] Saved a recorded run:
       `python tool_vetting_demo.py --with-agent | tee vetting_output.txt`
-- [ ] Noted any tool where the judge disagreed with the expected result
-      ("What to expect")
+- [ ] Noted any tool where the judge disagreed with the expected result ("What
+      to expect")
 - [ ] Terminal font enlarged, screen cleared
 
 ---

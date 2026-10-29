@@ -62,17 +62,17 @@ Bring your own Unix-like environment. macOS and Linux are the tested paths.
 
 ## Workshop outline
 
-| Chapter                                      | Topic                                         | Status            |
-| -------------------------------------------- | --------------------------------------------- | ----------------- |
-| [00-prereqs](./00-prereqs/README.md)         | Install tools, start the two model servers    | Ready             |
-| [01-intro](./01-intro/README.md)             | Why a judge, the threat model, the four gates | Ready             |
-| [02-agent-judge](./02-agent-judge/README.md) | Guard an agent at four checkpoints            | Ready             |
-| [03-approval-triage](./03-approval-triage/)  | Make human approval queues reviewable         | Demo only, so far |
-| [04-tool-vetting](./04-tool-vetting/)        | Vet and pin tool definitions                  | Demo only, so far |
-| [05-least-privilege](./05-least-privilege/)  | Learn least privilege from audited traces     | Demo only, so far |
-| [06-policy-compiler](./06-policy-compiler/)  | Turn written policy into reviewable criteria  | Demo only, so far |
-| [07-red-team](./07-red-team/)                | Red-team the judge with a model               | Demo only, so far |
-| [08-trace-audit](./08-trace-audit/)          | Audit complete agent runs after the fact      | Demo only, so far |
+| Chapter                                              | Topic                                         | Status            |
+| ---------------------------------------------------- | --------------------------------------------- | ----------------- |
+| [00-prereqs](./00-prereqs/README.md)                 | Install tools, start the two model servers    | Ready             |
+| [01-intro](./01-intro/README.md)                     | Why a judge, the threat model, the four gates | Ready             |
+| [02-agent-judge](./02-agent-judge/README.md)         | Guard an agent at four checkpoints            | Ready             |
+| [03-approval-triage](./03-approval-triage/README.md) | Make human approval queues reviewable         | Ready             |
+| [04-tool-vetting](./04-tool-vetting/)                | Vet and pin tool definitions                  | Demo only, so far |
+| [05-least-privilege](./05-least-privilege/)          | Learn least privilege from audited traces     | Demo only, so far |
+| [06-policy-compiler](./06-policy-compiler/)          | Turn written policy into reviewable criteria  | Demo only, so far |
+| [07-red-team](./07-red-team/)                        | Red-team the judge with a model               | Demo only, so far |
+| [08-trace-audit](./08-trace-audit/)                  | Audit complete agent runs after the fact      | Demo only, so far |
 
 Chapters 03 to 08 each stand on their own once you have finished 00 to 02.
 

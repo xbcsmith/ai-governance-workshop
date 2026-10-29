@@ -100,7 +100,8 @@ screen before you start.
 - [ ] Saved a recorded run as a backup:
       `python agent_judge_demo.py | tee demo_output.txt`
 - [ ] Closed memory-heavy apps (two 4-bit 8B models plus your slides on 24 GB)
-- [ ] Noted which scenarios behaved differently from this script (see "Scenario walkthrough")
+- [ ] Noted which scenarios behaved differently from this script (see "Scenario
+      walkthrough")
 
 ---
 
