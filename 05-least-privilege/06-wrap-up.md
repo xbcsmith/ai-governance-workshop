@@ -12,7 +12,7 @@ least-privilege proposal.
 | Baseline | The smallest policy that covers that usage                               |
 | Propose  | A model suggests a policy. Rules verify it, and the baseline is fallback |
 | Replay   | The policy is scored with our labels, and with a hold-out set            |
-| Review   | A person gets a proposal marked `approved: false`                        |
+| Review   | A human gets a proposal marked `approved: false`                         |
 
 ## What the full demo adds
 
@@ -49,10 +49,10 @@ line:
 every trace is assumed clean in the replay. Redact sensitive data first, and use
 more than a handful of runs.
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
-- **Tiny, hand-built log.** Fourteen traces prove nothing about accuracy. A real
-  log is larger, noisier and has more edge cases
+- **Sample size.** Fourteen traces say little about accuracy. A real log is
+  larger, noisier and has more edge cases
 - **Circular replay.** Without `--holdout`, the legitimate-actions column
   measures the policy against its own training data
 - **The audit is the weak link.** If the judge marks a bad trace clean, that

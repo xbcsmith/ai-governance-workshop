@@ -15,7 +15,7 @@ reviewer, auditor or on-call engineer actually opens.
 
 ## Two files
 
-`audit_report.md` is for people: the judge mode, how many traces were audited
+`audit_report.md` is for humans: the judge mode, how many traces were audited
 and how many failed, the policy used, a table with one row per trace, and in
 think mode the judge's reasoning for every flagged check. `audit_results.jsonl`
 is for machines: one line per trace with the verdicts.

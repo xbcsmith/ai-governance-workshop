@@ -16,7 +16,7 @@ and a loader for your own traces, and the warnings that go with them.
 ## Sampling
 
 An 8B judge is a triage tool here, not an authority. Audit a random fraction,
-and send the failures to a person. Add `import random` to the imports, then the
+and send the failures to a human. Add `import random` to the imports, then the
 options:
 
 ```python
@@ -65,7 +65,7 @@ Then the entry point with `--traces`, `--sample` and `--seed`:
 ```python
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--traces", help="JSONL file of recorded traces (default: built-in mock traces)")
+    ap.add_argument("--traces", help="JSONL file of recorded traces (default: built-in traces)")
     ap.add_argument("--think", action="store_true", help="judge reasons first; reasoning goes in the report")
     ap.add_argument("--sample", type=float, default=1.0, help="audit this random fraction of traces (0-1)")
     ap.add_argument("--seed", type=int, help="seed for --sample")

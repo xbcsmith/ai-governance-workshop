@@ -64,7 +64,7 @@ triage list for human review, not an approval.
 - **False positives.** Tools that legitimately tell users or agents to do things
   ("confirm with the user before deleting") may be flagged. Test the criteria
   against your own tools
-- **Tiny sample.** Seven hand-built tools prove nothing about accuracy. The
+- **Sample size.** Seven hand-built tools say little about accuracy. The
   criteria are prompts and are sensitive to wording
 - **Quantization.** Verdicts from 4-bit models may differ from full precision
 - **Semantic changes only get caught by re-vetting.** The hash tells you
@@ -90,8 +90,9 @@ triage list for human review, not an approval.
 3. **Hide it from the judge.** Rewrite the `add_numbers` instruction so the
    judge says `no` on all three checks. What did you have to change, and would
    an agent still follow it?
-4. **Probe false positives.** Add three honest tools that mention credentials,
-   deletion or email in a harmless way. How many does the judge quarantine?
+4. **Probe false positives.** Add three legitimate tools that mention
+   credentials, deletion or email in a harmless way. How many does the judge
+   quarantine?
 5. **Pin more than the definition.** What else would you want in the lockfile?
    The server name? A signature?
 

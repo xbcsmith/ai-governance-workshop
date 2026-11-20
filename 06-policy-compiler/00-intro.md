@@ -11,7 +11,7 @@ But the policy already exists, in plain English. Security teams have documents
 full of numbered rules. So the question is: **can a model draft judge criteria
 from the policy, can a judge check the drafts, and where does the human fit?**
 
-The answer here is a pipeline whose every output is a **draft for a person to
+The answer here is a pipeline whose every output is a **draft for a human to
 approve**. Nothing goes live by itself.
 
 ---
@@ -71,7 +71,7 @@ the script reports how many occurred.
 
 ---
 
-## Be honest about the evidence
+## State the limits of the evidence
 
 Do not present the numbers as accuracy figures.
 
@@ -83,8 +83,8 @@ Do not present the numbers as accuracy figures.
 - **Small samples.** With five tests each, one or two items move a percentage a
   lot
 
-Real, anonymized examples from your own traffic beat generated ones. A person
-has to approve before anything is relied on.
+Real, anonymized examples from your own traffic beat generated ones. A human has
+to approve before anything is relied on.
 
 ---
 

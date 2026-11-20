@@ -1,5 +1,7 @@
 # Workshop Session: Prerequisites
 
+**OWASP Agentic Top 10 (2026):** ASI04
+
 ## Outline
 
 ### Install the tools
@@ -24,6 +26,16 @@ judge returns a verdict we can parse.
 - Know which two models the workshop uses and why there are two servers
 - Start, stop and health-check a local `llama-server`
 - Recognize the symptom of a missing `--special` flag
+
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                                 | How this chapter relates                                                                                                                                                                                                      |
+| ----- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI04 | Agentic Supply Chain Vulnerabilities | Adjacent. The first run downloads model weights and tokenizers from the internet. Download them from the sources in the install lesson, and treat anything you fetch as untrusted input, which is the habit chapter 04 builds |
 
 ## Files
 

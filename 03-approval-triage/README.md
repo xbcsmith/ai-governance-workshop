@@ -1,5 +1,7 @@
 # Workshop Session: Triage Agent Approvals for Humans
 
+**OWASP Agentic Top 10 (2026):** ASI09 · ASI01 · ASI02
+
 ## Outline
 
 ### Why approvals fail
@@ -32,7 +34,7 @@ that goes against a recommendation.
 Each lesson explains one idea, then has you add a few lines to a single script
 and run it. The first lesson needs no model at all. A finished checkpoint for
 every lesson is in `solution/`. The `demo/` folder has the full demo script for
-people who want to run it first and build later.
+humans who want to run it first and build later.
 
 ## Key Learning Objectives
 
@@ -45,12 +47,24 @@ people who want to run it first and build later.
 - Tell under-triage from over-triage, and say which one is dangerous
 - Log human decisions, including overrides, for audit
 
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                           | How this chapter relates                                                                                                                                                                                         |
+| ----- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI09 | Human-Agent Trust Exploitation | The core of the chapter. Approval fatigue makes humans rubber-stamp, and a summary that lies about an action exploits their trust. A fixed level rule, a verified card and a verbatim action defend the reviewer |
+| ASI01 | Agent Goal Hijack              | The summarizer reads the same untrusted text as the agent, so it can be hijacked too                                                                                                                             |
+| ASI02 | Tool Misuse and Exploitation   | The queue is a list of proposed tool calls, and the triage layer decides which ones a human must look at                                                                                                         |
+
 ## Files
 
 | File                                                   | Description                                        |
 | ------------------------------------------------------ | -------------------------------------------------- |
 | [00-intro.md](./00-intro.md)                           | Approval fatigue, the design rules and the queue   |
-| [01-the-queue.md](./01-the-queue.md)                   | Build the mock queue and see what reviewers see    |
+| [01-the-queue.md](./01-the-queue.md)                   | Build the queue and see what reviewers see         |
 | [02-signals-and-levels.md](./02-signals-and-levels.md) | Four judge signals and a fixed level rule          |
 | [03-cards.md](./03-cards.md)                           | Let the model write the explanation, and only that |
 | [04-verify-the-card.md](./04-verify-the-card.md)       | Check the card against the action                  |

@@ -1,2 +1,1 @@
-transformers
-jinja2
+pillow

@@ -9,7 +9,7 @@ server as well as the compiler.
 
 - How to measure a criterion in both directions
 - How thresholds turn numbers into OK or REVIEW
-- Why the scores need an honest caveat
+- Why the scores need a caveat
 
 ---
 
@@ -158,7 +158,7 @@ R1 [output] ...
   `/var/docs/`) tend to be easier than rules that need judgment (refer advice
   questions to the right team). That is a hypothesis until you see your own run
 - A rule marked `REVIEW` is not broken. It is a rule where the first draft needs
-  a person's eyes, or a rewrite
+  a human's eyes, or a rewrite
 - With three tests each, one miss moves a rule from 100% to 67%
 
 ## Check your understanding

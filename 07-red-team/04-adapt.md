@@ -9,7 +9,7 @@ reasoning.
 ### What you will learn
 
 - How an adaptive attacker differs from a fixed test set
-- How to read a by-round comparison honestly
+- How to read a by-round comparison correctly
 - Why every miss becomes a saved regression test
 
 ---

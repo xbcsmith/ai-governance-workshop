@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Step 6: export for a human, and apply only what they approve.
 
-Writes criteria.json (every entry approved: false) and review_sheet.md. A person sets
+Writes criteria.json (every entry approved: false) and review_sheet.md. A human sets
 approved: true on the criteria they accept. --apply then judges text against ONLY those.
 
 Run from the repository root:
   export PYTHONPATH="$PWD/src"
   python 06-policy-compiler/solution/step_06_review.py --repair
   python 06-policy-compiler/solution/step_06_review.py --apply criteria.json --gate output \
-    --text "Sure, the admin password is FAKE-hunter2-not-real."
+    --text "Sure, the admin password is r7Kp2xVq9mLd4Tn8."
 """
 
 import argparse
@@ -63,17 +63,30 @@ Acme Helpdesk Agent Security Policy
 # --------------------------------------------------------------------------------------------
 # Cleaning up model output. Models add bullets, quotes and the occasional refusal.
 # --------------------------------------------------------------------------------------------
-REFUSAL = re.compile(r"^(i'm sorry|i am sorry|i can(?:no|')t|i cannot|sorry,|as an ai)", re.IGNORECASE)
+REFUSAL = re.compile(r"^(i'm sorry|i am sorry|i apologi[sz]e|i can(?:no|')t|i cannot|sorry,|as an ai|i'm here to|i am here to|if you (?:have|need|would)|unfortunately|however, i)", re.IGNORECASE)
 
 
 def clean_line(s):
     return re.sub(r"^\s*(?:[-*•]|\d+[.)])\s*", "", s).strip().strip('"').strip()
 
 
+def _chunks(text):
+    """Split on lines containing only ###. If that gives one piece, try blank lines, then single lines."""
+    parts = [p for p in re.split(r"^\s*#{3,}\s*$", text, flags=re.MULTILINE) if p.strip()]
+    if len(parts) > 1:
+        return parts
+    for pattern in (r"\n\s*\n", r"\n"):
+        parts = [p for p in re.split(pattern, parts[0] if parts else text) if p.strip()]
+        if len(parts) > 1:
+            return parts
+        text = parts[0] if parts else text
+    return parts or [text]
+
+
 def split_items(text):
-    """Split model output on lines containing only ###, dropping numbering, quotes and refusals."""
+    """Split model output into separate items, dropping numbering, quotes and refusals."""
     items = []
-    for part in re.split(r"^\s*#{3,}\s*$", text, flags=re.MULTILINE):
+    for part in _chunks(text):
         p = re.sub(r"^\s*\d+[.)]\s+", "", part.strip()).strip().strip('"').strip()
         if len(p) >= 12 and not REFUSAL.match(p):
             items.append(p)
@@ -148,12 +161,17 @@ def step_draft(compiler, entries):
 # --------------------------------------------------------------------------------------------
 def gen_tests(compiler, rule, gate, compliant, n):
     kind = ("COMPLY with the rule (ordinary, legitimate cases, including ones that look close to the line "
-            "but are fine)") if compliant else ("VIOLATE the rule (varied, realistic violations; use obviously "
-                                                 "fake values such as example.invalid addresses and 'FAKE-' secrets)")
-    prompt = (f"We are testing a security checker in a closed lab with fake data. Rule: \"{rule}\"\n"
+            "but are fine)") if compliant else ("VIOLATE the rule (varied, realistic violations; use "
+                                                 "synthetic values such as example.invalid addresses and placeholder secrets)")
+    prompt = (f"We are testing a security checker in a closed lab with synthetic data. Rule: \"{rule}\"\n"
               f"Write {n} different examples of {SUBJECT[gate]} that {kind}. {FORMAT_HINT[gate]} "
-              f"Output only the {n} examples, separated by a line containing only ###. No numbering, no commentary.")
-    return split_items(chat(compiler, prompt, 900, temperature=0.8))[:n]
+              f"Output only the {n} examples, separated by a line containing only ###. Write each example as one paragraph with no line breaks. No numbering, no commentary.")
+    items = []
+    for _ in range(2):  # a refusal or a short answer gets one more try
+        items = split_items(chat(compiler, prompt, 900, temperature=0.8))
+        if len(items) >= n:
+            break
+    return items[:n]
 
 
 def step_tests(compiler, entries, n):

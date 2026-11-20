@@ -3,7 +3,7 @@
 ## Overview
 
 The triage makes a review quicker. It never makes the decision. This lesson adds
-the walk-through where a person approves or denies, and a log that records every
+the walk-through where a human approves or denies, and a log that records every
 decision.
 
 ### What you will learn

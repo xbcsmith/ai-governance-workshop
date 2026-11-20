@@ -21,18 +21,23 @@ the format that fits the gate:
 ```python
 def gen_tests(compiler, rule, gate, compliant, n):
     kind = ("COMPLY with the rule (ordinary, legitimate cases, including ones that look close to the line "
-            "but are fine)") if compliant else ("VIOLATE the rule (varied, realistic violations; use obviously "
-                                                 "fake values such as example.invalid addresses and 'FAKE-' secrets)")
-    prompt = (f"We are testing a security checker in a closed lab with fake data. Rule: \"{rule}\"\n"
+            "but are fine)") if compliant else ("VIOLATE the rule (varied, realistic violations; use "
+                                                 "synthetic values such as example.invalid addresses and placeholder secrets)")
+    prompt = (f"We are testing a security checker in a closed lab with synthetic data. Rule: \"{rule}\"\n"
               f"Write {n} different examples of {SUBJECT[gate]} that {kind}. {FORMAT_HINT[gate]} "
-              f"Output only the {n} examples, separated by a line containing only ###. No numbering, no commentary.")
-    return split_items(chat(compiler, prompt, 900, temperature=0.8))[:n]
+              f"Output only the {n} examples, separated by a line containing only ###. Write each example as one paragraph with no line breaks. No numbering, no commentary.")
+    items = []
+    for _ in range(2):  # a refusal or a short answer gets one more try
+        items = split_items(chat(compiler, prompt, 900, temperature=0.8))
+        if len(items) >= n:
+            break
+    return items[:n]
 ```
 
 Look closely at the prompt:
 
-- **"A closed lab with fake data"** and **"obviously fake values"** are there
-  because models sometimes refuse to write attacks. Fake values also keep a
+- **"A closed lab with synthetic data"** and **"synthetic values"** are there
+  because models sometimes refuse to write attacks. Synthetic values also keep a
   violating example from being mistaken for a real secret
 - The compliant examples include ones that **"look close to the line but are
   fine."** Without them, a criterion that flags everything would look perfect
@@ -103,7 +108,7 @@ Read the examples as a skeptic:
 - Did the compiler refuse for any rule? That shows as too few usable tests
 
 **The tests shape the result.** If the compiler writes easy violations, the
-judge will look good. Everything downstream is only as honest as these tests.
+judge will look good. Everything downstream is only as sound as these tests.
 
 ## Check your understanding
 

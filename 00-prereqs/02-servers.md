@@ -6,7 +6,7 @@ The workshop uses two models, each in its own `llama-server`:
 
 | Role  | Model                   | Port | Job                                     |
 | ----- | ----------------------- | ---- | --------------------------------------- |
-| Agent | Granite 4.1 8B          | 8080 | Reads requests and calls (mock) tools   |
+| Agent | Granite 4.1 8B          | 8080 | Reads requests and calls tools          |
 | Judge | Granite Guardian 4.1 8B | 8081 | Answers yes or no about a piece of text |
 
 We keep them separate on purpose. The judge is a different model from the agent,

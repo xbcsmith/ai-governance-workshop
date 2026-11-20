@@ -3,12 +3,12 @@
 ## Overview
 
 Two things are left. One is measuring what a tight policy breaks on legitimate
-use it has not seen. The other is handing the result to a person, with nothing
+use it has not seen. The other is handing the result to a human, with nothing
 deployed.
 
 ### What you will learn
 
-- How a hold-out set measures breakage honestly
+- How a hold-out set measures breakage fairly
 - Why the log cannot tell you what was right
 - What the output files look like, and why they say `approved: false`
 
@@ -65,7 +65,7 @@ def write_outputs(policy_path, report_path, chosen, source, stats, learned, trac
     with open(policy_path, "w") as f:
         json.dump({"source": source, "approved": False, "tools": chosen, "needs_confirmation": confirm}, f, indent=2)
     with open(report_path, "w") as f:
-        f.write("# Least-privilege proposal\n\n**Nothing here is approved.** A person must review it.\n\n")
+        f.write("# Least-privilege proposal\n\n**Nothing here is approved.** A human must review it.\n\n")
         f.write(f"- Learned from {len(learned)} of {len(traces)} traces (audit {'skipped' if skip_audit else 'by LLM judge'})\n")
         f.write(f"- Policy source: {source}\n\n| Tool | Current | Proposed | Uses in clean traces |\n|---|---|---|---|\n")
         for tool in ALL_TOOLS:
@@ -143,7 +143,6 @@ if __name__ == "__main__":
             print(f"   {c}")
     write_outputs(args.out, args.report, chosen, source, stats, clean_traces, TRACES, confirm, still, args.skip_audit)
     print(f"\nWrote {args.out} (approved:false) and {args.report}.")
-    print("Tiny, hand-built log: not an evaluation.")
 ```
 
 ---

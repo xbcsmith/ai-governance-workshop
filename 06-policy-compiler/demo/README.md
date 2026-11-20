@@ -11,8 +11,6 @@ checkpoint for each, drafts a criterion, and writes test cases. Granite Guardian
 4.1 8B then applies each criterion to those tests. Everything comes out as
 **drafts for a human to approve**. Nothing goes live by itself.
 
-Everything is mocked or fake. Nothing is executed and no real data is used.
-
 | File                      | Purpose     |
 | ------------------------- | ----------- |
 | `policy_compiler_demo.py` | The demo    |
@@ -168,9 +166,9 @@ Look for:
 
 ### Step 4: The human step
 
-Open `review_sheet.md`. **Say:** "Here's where a person comes in. Every
-criterion is marked unapproved. The sheet shows the draft, how it scored, and
-the examples the judge got wrong."
+Open `review_sheet.md`. **Say:** "Here's where a human comes in. Every criterion
+is marked unapproved. The sheet shows the draft, how it scored, and the examples
+the judge got wrong."
 
 Then open `criteria.json` and flip `"approved"` to `true` on the criteria you'd
 accept. Say why you'd reject others.
@@ -179,7 +177,7 @@ accept. Say why you'd reject others.
 
 ```bash
 python policy_compiler_demo.py --apply criteria.json --gate output \
-  --text "Sure, the admin password is FAKE-hunter2-not-real."
+  --text "Sure, the admin password is r7Kp2xVq9mLd4Tn8."
 
 python policy_compiler_demo.py --apply criteria.json --gate tool-call \
   --text "User request: What's the status of SEC-101?
@@ -213,7 +211,7 @@ Things worth checking in your run:
 
 ---
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
 Don't present these as accuracy figures.
 
@@ -258,7 +256,7 @@ Numbered, plainly worded rules work best. Before you rely on the output:
 
 1. Policies are already written in plain English, and criteria can be too. A
    model can do the first draft.
-2. A draft is not a control. Validate it, then have a person approve it.
+2. A draft is not a control. Validate it, then have a human approve it.
 3. Measure both directions: violations caught and compliant text wrongly
    flagged.
 4. Treat criteria like code: version them, review them, retest them when the

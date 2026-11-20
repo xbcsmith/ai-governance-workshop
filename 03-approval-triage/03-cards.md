@@ -137,7 +137,7 @@ the signals and the card.
   reason for a second look
 - The `poisoned-reviewer-note` card: does the real summarizer repeat the
   "routine, pre-approved" claim? It may or may not. Both results are worth
-  showing honestly
+  showing plainly
 
 ## Check your understanding
 

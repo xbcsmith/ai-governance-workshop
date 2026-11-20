@@ -1,5 +1,7 @@
 # Workshop Session: Vet Tools Before the Agent Sees Them
 
+**OWASP Agentic Top 10 (2026):** ASI04 · ASI01 · ASI02
+
 ## Outline
 
 ### Tool definitions are prompts
@@ -31,7 +33,7 @@ Each lesson explains one idea, then has you add a few lines to a single script
 and run it. The first lesson needs no model, and lessons 2 and 3 need only the
 judge. The agent is needed only for the optional last lesson. A finished
 checkpoint for every lesson is in `solution/`. The `demo/` folder has the full
-demo script for people who want to run it first and build later.
+demo script for humans who want to run it first and build later.
 
 ## Key Learning Objectives
 
@@ -42,18 +44,30 @@ demo script for people who want to run it first and build later.
 - Pin approved definitions and re-vet when the hash changes
 - Say what a definition check cannot see: what the server code actually does
 
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                                 | How this chapter relates                                                                                                                                                                  |
+| ----- | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI04 | Agentic Supply Chain Vulnerabilities | The core of the chapter. A malicious or compromised tool server (tool poisoning, shadowing, a rug pull after approval) is a supply chain attack. Vetting and hash pinning are the defense |
+| ASI01 | Agent Goal Hijack                    | Instructions hidden in a tool's name or description reach the agent's prompt and redirect it                                                                                              |
+| ASI02 | Tool Misuse and Exploitation         | A poisoned tool turns a legitimate call into a harmful one, and the vetted-agent lesson shows the difference                                                                              |
+
 ## Files
 
-| File                                               | Description                                          |
-| -------------------------------------------------- | ---------------------------------------------------- |
-| [00-intro.md](./00-intro.md)                       | Tool poisoning, the attacks and the plan             |
-| [01-the-catalog.md](./01-the-catalog.md)           | Build the mock catalog and read it as the agent does |
-| [02-vet-the-tools.md](./02-vet-the-tools.md)       | Three checks and a quarantine decision               |
-| [03-pin-and-drift.md](./03-pin-and-drift.md)       | Hash approved tools and catch a rug pull             |
-| [04-the-vetted-agent.md](./04-the-vetted-agent.md) | Optional: the same request, two tool lists           |
-| [05-wrap-up.md](./05-wrap-up.md)                   | Limits, real tools and exercises                     |
-| [solution/](./solution)                            | A runnable checkpoint for each lesson                |
-| [demo/](./demo/README.md)                          | The full demo script and presenter guide             |
+| File                                               | Description                                     |
+| -------------------------------------------------- | ----------------------------------------------- |
+| [00-intro.md](./00-intro.md)                       | Tool poisoning, the attacks and the plan        |
+| [01-the-catalog.md](./01-the-catalog.md)           | Build the catalog and read it as the agent does |
+| [02-vet-the-tools.md](./02-vet-the-tools.md)       | Three checks and a quarantine decision          |
+| [03-pin-and-drift.md](./03-pin-and-drift.md)       | Hash approved tools and catch a rug pull        |
+| [04-the-vetted-agent.md](./04-the-vetted-agent.md) | Optional: the same request, two tool lists      |
+| [05-wrap-up.md](./05-wrap-up.md)                   | Limits, real tools and exercises                |
+| [solution/](./solution)                            | A runnable checkpoint for each lesson           |
+| [demo/](./demo/README.md)                          | The full demo script and presenter guide        |
 
 ## Before you start
 

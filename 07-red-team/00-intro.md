@@ -67,9 +67,8 @@ match what you observe.
 
 ## Scope and safety
 
-- The secrets file, the email address and the tickets are all fake, and nothing
-  in the script reads files or sends email
-- The attack text is plain prompt-injection and jailbreak wording aimed at a toy
+- Nothing in the script reads files or sends email
+- The attack text is plain prompt-injection and jailbreak wording aimed at a
   helpdesk scenario. Keep your generated results to your own testing and talk
 - The attacker may produce offensive or odd text. Check the output before you
   project it

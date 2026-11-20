@@ -110,7 +110,7 @@ python 04-tool-vetting/work/vetting.py
 Before you read on, find the four bad tools by eye. Read every description
 **and** every parameter description.
 
-Most people find `add_numbers` quickly, because the `<IMPORTANT>` block is
+Most humans find `add_numbers` quickly, because the `<IMPORTANT>` block is
 obvious. Fewer notice that the instruction in `send_report` is hidden in a
 **parameter** description, and fewer still stop to ask what `command` is doing
 in a title-case formatter. Reading is slow, and a real server may have hundreds

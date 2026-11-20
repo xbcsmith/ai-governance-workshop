@@ -1,5 +1,7 @@
 # Workshop Session: Audit Complete Agent Traces
 
+**OWASP Agentic Top 10 (2026):** ASI10 · ASI09 · ASI01
+
 ## Outline
 
 ### Gates and audits
@@ -29,9 +31,10 @@ report a reviewer, auditor or on-call engineer can read.
 
 Each lesson explains one idea, then has you add a few lines to a single script
 and run it. The first lesson needs no model. Only the judge is needed after
-that: no agent runs, because the traces are hand-written and no tools execute. A
-finished checkpoint for every lesson is in `solution/`. The `demo/` folder has
-the full demo script for people who want to run it first and build later.
+that: no agent runs and no tools execute, because the traces are stored in the
+script. A finished checkpoint for every lesson is in `solution/`. The `demo/`
+folder has the full demo script for humans who want to run it first and build
+later.
 
 ## Key Learning Objectives
 
@@ -39,8 +42,20 @@ the full demo script for people who want to run it first and build later.
 - Read the four verdicts correctly, including the one that is only context
 - Locate the first deviating step of a failing run, and say why it is a
   heuristic
-- Produce a report that a person can act on
+- Produce a report that a human can act on
 - Sample traces, and say why passing is not proof
+
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                           | How this chapter relates                                                                                                                                      |
+| ----- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI10 | Rogue Agents                   | Partial. An audit finds runs that drifted from the user's goal, and the first deviating step. It detects drift after the fact and does not stop a rogue agent |
+| ASI09 | Human-Agent Trust Exploitation | Partial. It checks whether the agent's final message matches what the tools returned, so a reviewer is not misled by a false report of success                |
+| ASI01 | Agent Goal Hijack              | One of the four audit questions asks whether the run followed instructions embedded in data                                                                   |
 
 ## Files
 

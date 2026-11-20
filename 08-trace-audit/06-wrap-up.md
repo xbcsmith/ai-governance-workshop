@@ -4,7 +4,7 @@
 
 An offline auditor in about 310 lines. It reads recorded runs, asks four
 questions about each, locates the first deviating step of a failing run, and
-writes a report a person can act on. It can sample traces and read your own.
+writes a report a human can act on. It can sample traces and read your own.
 
 | Piece      | What your script does                                             |
 | ---------- | ----------------------------------------------------------------- |
@@ -36,8 +36,8 @@ The script in [demo/](./demo/README.md) has the same audit. It adds:
   at the wrong step
 - **Passing is not proof.** A PASS means the judge found no problem, not that
   the run was safe
-- **Tiny, hand-built sample.** Nine traces prove nothing about accuracy, and the
-  label for each is our judgment
+- **Sample size.** Nine traces say little about accuracy, and the label for each
+  is our judgment
 - **Quantized model.** Verdicts from a 4-bit model may differ from full
   precision
 - **Long transcripts strain a small judge.** Quality can drop as traces grow

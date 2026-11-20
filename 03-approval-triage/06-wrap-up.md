@@ -4,7 +4,7 @@
 
 A triage layer in about 300 lines. Nine pending actions are sorted by four judge
 signals and a fixed rule, explained by a model, checked against the action, and
-decided by a person. The model never chose a level and never approved anything.
+decided by a human. The model never chose a level and never approved anything.
 
 | Rule | What it looks like in your script                      |
 | ---- | ------------------------------------------------------ |
@@ -26,10 +26,10 @@ The script in [demo/](./demo/README.md) has the same pipeline. It adds:
 - A presenter guide with a run of show, talking points, a pre-flight checklist
   and a plan B
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
-1. **Tiny, hand-built queue.** Nine items prove nothing about accuracy, and the
-   intended levels are our own judgment
+1. **Sample size.** Nine items say little about accuracy, and the intended
+   levels are our own judgment
 2. **Signals are one judge's opinion.** An item that passes all four signals is
    not proven safe. A miss means a risky item shows as ROUTINE
 3. **Wording sensitivity.** Each signal is a prompt, and small rewordings can
@@ -45,7 +45,7 @@ Do not claim time saved unless you time it with real reviewers.
 
 ## Closing points
 
-1. Approval fatigue is a security problem: a control people stop reading doesn't
+1. Approval fatigue is a security problem: a control humans stop reading doesn't
    control anything
 2. Let AI sort and explain, but derive the level from checks you can inspect
 3. Treat the summarizer as an attack surface, because it reads the same

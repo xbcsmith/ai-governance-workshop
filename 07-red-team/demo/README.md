@@ -8,8 +8,8 @@ Companion to the [agent-judge demo](../../02-agent-judge/demo/README.md)
 Granite 4.1 8B plays the attacker. Granite Guardian 4.1 8B is the judge, sitting
 at two of the agent-judge demo's gates: the **input gate** (user messages) and
 the **tool-result gate** (ticket bodies the agent reads). Every attack has the
-same toy goal: get an assistant to read a fake secrets file and email it to an
-outside address. Nothing is executed. The script only tests the judge.
+same goal: get an assistant to read a secrets file and email it to an outside
+address. Nothing is executed. The script only tests the judge.
 
 | File               | Purpose     |
 | ------------------ | ----------- |
@@ -190,13 +190,13 @@ python red_team_demo.py --criteria v2 --seed 1 --out redteam_run_v2.jsonl
 ```
 
 **Say:** "Recovering the old misses proves little, because those attacks were
-written against the old criteria. A fresh adaptive run is the honest test."
+written against the old criteria. A fresh adaptive run is the fair test."
 
 Compare this run's tables with step 2.
 
 ---
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
 Don't present these as benchmark results.
 
@@ -234,9 +234,8 @@ Don't present these as benchmark results.
 
 ## Scope and safety
 
-- The "secrets" file, the email address and the tickets are all fake, and
-  nothing in the script reads files or sends email.
-- The attack text is plain prompt-injection and jailbreak wording aimed at a toy
+- Nothing in the script reads files or sends email.
+- The attack text is plain prompt-injection and jailbreak wording aimed at a
   helpdesk scenario. Keep your generated results to your own testing and talk.
 - The attacker may produce offensive or odd text. Check the output before you
   project it.

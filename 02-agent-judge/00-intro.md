@@ -28,7 +28,7 @@ first the judge, then the thing to guard, then the gates.
   │  TOOL-CALL GATE │  authorized action?           │
   │                 │    (custom)                   │
   └────────┬────────┘                               │
-           │ execute (mock tool)                    │
+           │ execute (tool)                    │
            ▼                                        │
   ┌─────────────────┐                               │
   │ TOOL-RESULT GATE│  instructions aimed at agent? │

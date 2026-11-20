@@ -105,4 +105,4 @@ Checkpoint: `solution/step_05_repair.py`.
 
 ## Next
 
-Give it to a person: [06-review-and-apply.md](./06-review-and-apply.md).
+Give it to a human: [06-review-and-apply.md](./06-review-and-apply.md).

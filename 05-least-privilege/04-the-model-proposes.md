@@ -180,7 +180,7 @@ Read the model section. One of two things happens:
 - **"The model's proposal FAILED verification, so the baseline is used
   instead."** Read the reasons. The model may have wrapped the JSON oddly or
   generalized too far. That is the check doing its job, and it is a result worth
-  showing honestly
+  showing plainly
 
 Each reason in the policy table is the model's own, one sentence per tool. The
 replay table now has a third row for the proposal.
@@ -196,4 +196,4 @@ Checkpoint: `solution/step_04_propose.py`.
 
 ## Next
 
-Hand it to a person: [05-review-and-holdout.md](./05-review-and-holdout.md).
+Hand it to a human: [05-review-and-holdout.md](./05-review-and-holdout.md).

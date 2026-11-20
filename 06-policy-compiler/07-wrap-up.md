@@ -4,7 +4,7 @@
 
 A policy compiler in about 370 lines: it reads a plain-English policy, drafts a
 criterion per rule, tests the drafts with a judge, repairs the weak ones, and
-hands a review sheet to a person. Only approved criteria are ever applied.
+hands a review sheet to a human. Only approved criteria are ever applied.
 
 | Step     | What your script does                                               |
 | -------- | ------------------------------------------------------------------- |
@@ -13,7 +13,7 @@ hands a review sheet to a person. Only approved criteria are ever applied.
 | Test     | Compliant and violating examples, written by the compiler           |
 | Validate | The judge scores both directions                                    |
 | Repair   | A rewrite wins only on fresh tests                                  |
-| Review   | `approved: false` until a person says otherwise                     |
+| Review   | `approved: false` until a human says otherwise                      |
 | Apply    | Only approved criteria, at the chosen gate                          |
 
 ## What the full demo adds
@@ -27,7 +27,7 @@ The script in [demo/](./demo/README.md) has the same pipeline. It adds:
 Your script does each phase for every rule before the next phase. The demo does
 extract, draft, test and validate rule by rule. The results are the same.
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
 Do not present these as accuracy figures.
 
@@ -51,7 +51,7 @@ Do not present these as accuracy figures.
 
 1. Policies are already written in plain English, and criteria can be too. A
    model can do the first draft
-2. A draft is not a control. Validate it, then have a person approve it
+2. A draft is not a control. Validate it, then have a human approve it
 3. Measure both directions: violations caught and compliant text wrongly flagged
 4. Treat criteria like code: version them, review them, retest them when the
    policy changes

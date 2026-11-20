@@ -1,0 +1,13 @@
+{
+  "background": "#eeeeee",
+  "text": "#000000",
+  "muted": "#595959",
+  "roles": {
+    "model": "#674ea7",
+    "judge": "#0097a7",
+    "rule": "#4285f4",
+    "human": "#a64d79",
+    "ok": "#10b981",
+    "block": "#ef4444"
+  }
+}

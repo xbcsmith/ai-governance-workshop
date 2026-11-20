@@ -7,7 +7,7 @@ tool. Narrow the path. Restrict the recipient. No detector has to be right,
 because the call cannot happen.
 
 The difficulty is knowing what to remove. Most agents start with whatever was
-convenient on day one: every tool, unrestricted. The honest source of truth for
+convenient on day one: every tool, unrestricted. The real source of truth for
 what an agent **needs** is what it has actually done, and that is in the logs.
 
 So we mine the logs. And that is where it goes wrong.
@@ -94,8 +94,7 @@ The last bad trace is deliberate. It uses an **allowed domain**, so no
 permission policy of this kind can stop it. It shows where least privilege ends
 and other layers must take over.
 
-Everything is mocked. The traces are hand-written, no tools run, and the secrets
-are fake.
+The traces are stored in the script and no tools run.
 
 ---
 

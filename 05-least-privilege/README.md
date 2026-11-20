@@ -1,5 +1,7 @@
 # Workshop Session: Learn Least Privilege from Audited Traces
 
+**OWASP Agentic Top 10 (2026):** ASI03 · ASI02 · ASI06
+
 ## Outline
 
 ### The cheapest control
@@ -22,7 +24,7 @@ Let a model propose a policy from the clean usage, then verify it with
 deterministic checks: it must cover every clean action, and it must not allow a
 probe call that the baseline denies. If it fails, fall back to the baseline.
 
-### A person approves
+### A human approves
 
 The log can only say what was normal, not what was right. Flag the exceptions
 for a human, measure what a tight policy breaks on unseen legitimate use, and
@@ -33,7 +35,7 @@ write a proposal with `approved: false`.
 Each lesson explains one idea, then has you add a few lines to a single script
 and run it. The first two lessons need no model at all. A finished checkpoint
 for every lesson is in `solution/`. The `demo/` folder has the full demo script
-for people who want to run it first and build later.
+for humans who want to run it first and build later.
 
 ## Key Learning Objectives
 
@@ -43,6 +45,18 @@ for people who want to run it first and build later.
 - Audit traces with a judge before learning from them
 - Verify a model's proposal with rules, and fall back safely
 - Name what permissions cannot stop, and what a tight policy costs
+
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                         | How this chapter relates                                                                                                                                                                  |
+| ----- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI03 | Identity and Privilege Abuse | The core of the chapter. The agent runs with whatever permissions were convenient, and the chapter learns a much smaller policy from audited use                                          |
+| ASI02 | Tool Misuse and Exploitation | A tight policy limits what a misused tool can reach, even when the judge misses an attack                                                                                                 |
+| ASI06 | Memory and Context Poisoning | Adjacent. Learning from a poisoned log whitelists the attacker's behavior. The same risk applies when an agent's own memory is poisoned, though this chapter works on logs and not memory |
 
 ## Files
 

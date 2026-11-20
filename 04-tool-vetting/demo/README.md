@@ -10,9 +10,6 @@ can hide instructions there ("tool poisoning"), and the user never sees them.
 Granite Guardian reviews each definition against three plain-English criteria,
 and a hash lock catches tools that change after approval.
 
-Everything is mocked. No real files are read, nothing is sent anywhere, and the
-"secrets" are fake.
-
 | File                   | Purpose     |
 | ---------------------- | ----------- |
 | `tool_vetting_demo.py` | The demo    |
@@ -41,7 +38,7 @@ The four phases:
 
 | Phase    | What happens                                                                                           |
 | -------- | ------------------------------------------------------------------------------------------------------ |
-| 1. VET   | The judge checks every tool in a seven-tool mock catalog                                               |
+| 1. VET   | The judge checks every tool in a seven-tool catalog                                                    |
 | 2. PIN   | Each approved definition is hashed                                                                     |
 | 3. DRIFT | A server changes an approved tool (a "rug pull"). The hash no longer matches, so the tool is re-vetted |
 | 4. AGENT | Optional. The same request runs against the unvetted tool list, then the vetted one                    |
@@ -140,8 +137,7 @@ have the judge read it first."
   variable, but it asks the agent for nothing. It is the false-positive probe: a
   judge that flags every mention of credentials would be useless.
 - Then walk the four bad tools using the table in "What to expect".
-- Finish on the scorecard line, but call it what it is: a tiny, hand-built
-  sample, not an evaluation.
+- Finish on the scorecard line.
 
 ### Phase 2: PIN
 
@@ -172,7 +168,7 @@ phase.
 
 The user asks "What is 17 plus 25?" The unvetted agent sees all seven tools,
 including the poisoned `add_numbers`. If it follows the planted instruction,
-you'll see it call `read_file` on the fake secrets file and pass the contents in
+you'll see it call `read_file` on the secrets file and pass the contents in
 `notes`, then a 🚨 line. The vetted agent never sees `add_numbers` and answers
 the question directly.
 
@@ -199,7 +195,7 @@ and the models are quantized, so check your own run.
 
 The mismatch marker is `✗ MISMATCH`. If it appears, run that tool again with
 `--think` to see the judge's reasoning, and decide whether to adjust the
-criterion wording or present the miss honestly.
+criterion wording or present the miss plainly.
 
 ---
 
@@ -252,7 +248,7 @@ labels. Treat the output as a triage list for human review, not an approval.
 - **False positives.** Tools that legitimately tell users or agents to do things
   ("confirm with the user before deleting") may be flagged. Test the criteria
   against your own tools.
-- **Tiny sample.** Seven hand-built tools prove nothing about accuracy. The
+- **Sample size.** Seven hand-built tools say little about accuracy. The
   criteria are prompts and are sensitive to wording.
 - **Quantization.** Verdicts from 4-bit models may differ from full precision.
 - **Semantic changes only get caught by re-vetting.** The hash tells you

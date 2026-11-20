@@ -15,8 +15,7 @@ the surviving usage. Deterministic checks verify the proposal and fall back to a
 rule-based baseline if it fails. As in the approval-triage demo: the model
 proposes, deterministic checks decide.
 
-Everything is mocked or fake. The traces are hand-written, no tools run, and the
-"secrets" are fake.
+The traces are stored in the script and no tools run.
 
 | File                      | Purpose     |
 | ------------------------- | ----------- |
@@ -209,7 +208,7 @@ Read the replay table:
 **Say:** "The current grants block nothing. The proposed policy stops most of
 the malicious actions without breaking any legitimate ones."
 
-Then be honest about two things, both visible on screen:
+Then be direct about two things, both visible on screen:
 
 1. **"Legit blocked: 0" is partly by construction.** The policy was derived from
    the same traces it is replayed against.
@@ -250,10 +249,10 @@ probabilistic and quantized, so check your own run.
 
 ---
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
-- **Tiny, hand-built log.** Fourteen traces prove nothing about accuracy. A real
-  log is larger, noisier and has more edge cases.
+- **Sample size.** Fourteen traces say little about accuracy. A real log is
+  larger, noisier and has more edge cases.
 - **Circular replay.** Without `--holdout`, the legitimate-actions column
   measures the policy against its own training data.
 - **The audit is the weak link.** If the judge marks a bad trace clean, that

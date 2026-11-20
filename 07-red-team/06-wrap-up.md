@@ -23,7 +23,7 @@ The script in [demo/](./demo/README.md) has the same loop. It adds:
 - A presenter guide with a run of show, talking points, a pre-flight checklist
   and a plan B
 
-## Reading the numbers honestly
+## Reading the numbers carefully
 
 Do not present these as benchmark results.
 

@@ -2,9 +2,9 @@
 
 ## What you built
 
-An agent with mock tools and a judge at four boundaries, in about 300 lines. You
-saw the same attacks land when unguarded and get stopped when guarded, and you
-saw that the stopping gate is not always the first one to notice.
+An agent with tools and a judge at four boundaries, in about 300 lines. You saw
+the same attacks land when unguarded and get stopped when guarded, and you saw
+that the stopping gate is not always the first one to notice.
 
 | Gate        | Criterion                   | Kind                | Flags on |
 | ----------- | --------------------------- | ------------------- | -------- |
@@ -71,4 +71,4 @@ The demo guide has the full run of show, talking points and troubleshooting:
 
 The next chapters stand on their own. A good one to take next is
 [03-approval-triage](../03-approval-triage/README.md), which asks what happens
-when a person must approve what the agent wants to do.
+when a human must approve what the agent wants to do.

@@ -1,6 +1,6 @@
 # Troubleshooting
 
-Fixes for the problems people hit most. Chapter-specific problems are listed in
+Fixes for the problems humans hit most. Chapter-specific problems are listed in
 that chapter's demo guide.
 
 ## Servers

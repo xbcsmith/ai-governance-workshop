@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Step 1: the tool catalog, as the agent reads it.
 
-Seven mock tools from seven mock servers. Three are fine and four are not. Print them as the
+Seven tools from seven servers. Three are fine and four are not. Print them as the
 agent will see them: as text. No model is needed.
 
 Run from the repository root:
@@ -13,7 +13,7 @@ import json
 
 
 # --------------------------------------------------------------------------------------------
-# A mock tool catalog. "expect" is OUR label, used only for the scorecard.
+# A tool catalog. "expect" is OUR label, used only for the scorecard.
 # --------------------------------------------------------------------------------------------
 def tool(name, description, params):
     return {"type": "function", "function": {

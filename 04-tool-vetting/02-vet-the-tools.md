@@ -123,8 +123,7 @@ def phase_vet(judge, catalog, think=False):
         if not blocked:
             approved[fn["name"]] = entry["tool"]
     if labelled:
-        print(f"\nScorecard: the judge matched our labels on {matches} of {labelled} tools "
-              f"(a tiny, hand-built sample, not an evaluation).")
+        print(f"\nScorecard: the judge matched our labels on {matches} of {labelled} tools.")
     return approved
 ```
 
@@ -178,7 +177,7 @@ python 04-tool-vetting/work/vetting.py --think
 ```
 
 Read the reasoning for the tool that surprised you. Then decide: tighten the
-wording of the criterion, or present the miss honestly. A benign tool that is
+wording of the criterion, or present the miss plainly. A benign tool that is
 quarantined is over-triage, which is annoying. A poisoned tool that is approved
 is the dangerous one.
 

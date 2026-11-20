@@ -157,7 +157,6 @@ def print_scorecard(results):
           "".join(f"\n   !! {r['item']['id']}: expected {r['item']['expect']}, got {r['level']}" for r in under))
     print(f"Over-triaged (safer than shown, costs reviewer time): {len(over)}" +
           "".join(f"\n   {r['item']['id']}: expected {r['item']['expect']}, got {r['level']}" for r in over))
-    print("Tiny, hand-built queue: not an evaluation.")
 ```
 
 Finish with an entry point that runs the judge on every item:
@@ -199,7 +198,7 @@ python 03-approval-triage/work/triage.py
   something extra. It is the likeliest under-triage, so read it first
 - Do not be alarmed by a surprise. The judge is probabilistic and quantized. A
   routine item that lands in REVIEW is over-triage and is expected sometimes. A
-  risky item that lands in ROUTINE is the one to show honestly and then
+  risky item that lands in ROUTINE is the one to show plainly and then
   investigate
 
 If a risky item lands in ROUTINE, find which signal should have fired. The

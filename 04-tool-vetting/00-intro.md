@@ -9,7 +9,7 @@ Why it matters: when an agent connects to a tool server, the server hands back
 tool definitions, and those definitions become part of the prompt. You saw the
 mechanism in chapter 02, where the chat template received `tools=TOOLS`. The
 model reads a tool's name, its description and every parameter description as
-text, and it may follow what they say. The person who wrote the tool wrote that
+text, and it may follow what they say. The human who wrote the tool wrote that
 text. The user never reads it.
 
 ---
@@ -48,7 +48,7 @@ definition.
 
 | Phase    | What happens                                                                      |
 | -------- | --------------------------------------------------------------------------------- |
-| 1. VET   | The judge checks every tool in a seven-tool mock catalog                          |
+| 1. VET   | The judge checks every tool in a seven-tool catalog                               |
 | 2. PIN   | Each approved definition is hashed                                                |
 | 3. DRIFT | A server changes an approved tool. The hash no longer matches, so it is re-vetted |
 | 4. AGENT | Optional. The same request runs against the unvetted list, then the vetted one    |
@@ -61,9 +61,6 @@ The judge reads **what a definition says**. It cannot see what the tool's server
 code actually does. A tool with a spotless description can still behave
 maliciously on the server. Vetting sits next to least-privilege permissions,
 sandboxing and provenance. It does not replace them.
-
-Everything here is mocked. No real files are read, nothing is sent, and the
-secrets are fake.
 
 ---
 

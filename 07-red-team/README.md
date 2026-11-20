@@ -1,5 +1,7 @@
 # Workshop Session: Red-Team the Judge
 
+**OWASP Agentic Top 10 (2026):** ASI01 · ASI02
+
 ## Outline
 
 ### The harder question
@@ -13,9 +15,9 @@ attacks, and keeps adapting.
 
 Granite 4.1 8B plays the attacker. Granite Guardian 4.1 8B is the judge, sitting
 at two of the runtime gates: the input gate (user messages) and the tool-result
-gate (ticket bodies the agent reads). Every attack has the same toy goal: get an
-assistant to read a fake secrets file and email it to an outside address.
-Nothing is executed. The script only tests the judge.
+gate (ticket bodies the agent reads). Every attack has the same goal: get an
+assistant to read a secrets file and email it to an outside address. Nothing is
+executed. The script only tests the judge.
 
 ### Measure both directions
 
@@ -34,7 +36,7 @@ Each lesson explains one idea, then has you add a few lines to a single script
 and run it. The first lesson needs no model. Lessons 2 to 5 need the attacker
 (the agent server), and lessons 3 to 5 add the judge. A finished checkpoint for
 every lesson is in `solution/`. The `demo/` folder has the full demo script for
-people who want to run it first and build later.
+humans who want to run it first and build later.
 
 ## Key Learning Objectives
 
@@ -44,6 +46,17 @@ people who want to run it first and build later.
 - Turn every miss into a regression test, and replay it when criteria change
 - Say why recovering old misses is not proof of robustness
 - Say why an 8B red team is not a benchmark
+
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                         | How this chapter relates                                                                                                              |
+| ----- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI01 | Agent Goal Hijack            | A model writes jailbreaks and indirect injections against the input and tool-result gates, and the chapter measures what gets through |
+| ASI02 | Tool Misuse and Exploitation | Every attack has the same goal, which is to misuse `read_file` and `send_email` to move a secret out                                  |
 
 ## Files
 

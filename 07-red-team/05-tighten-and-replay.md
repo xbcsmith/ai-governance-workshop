@@ -132,7 +132,7 @@ test. Replay it before any criterion change ships.
 ## Why recovery proves little
 
 The saved attacks were written against the **old** criteria. Of course a tighter
-criterion catches them. The honest test is a fresh adaptive run against the new
+criterion catches them. The fair test is a fresh adaptive run against the new
 criteria:
 
 ```bash

@@ -93,7 +93,7 @@ that declined. `clean_line` strips list markers and quotes. `split_items` splits
 a long answer on lines that contain only `###`:
 
 ```python
-REFUSAL = re.compile(r"^(i'm sorry|i am sorry|i can(?:no|')t|i cannot|sorry,|as an ai)", re.IGNORECASE)
+REFUSAL = re.compile(r"^(i'm sorry|i am sorry|i apologi[sz]e|i can(?:no|')t|i cannot|sorry,|as an ai|i'm here to|i am here to|if you (?:have|need|would)|unfortunately|however, i)", re.IGNORECASE)
 
 
 def clean_line(s):
@@ -101,10 +101,23 @@ def clean_line(s):
 ```
 
 ```python
+def _chunks(text):
+    """Split on lines containing only ###. If that gives one piece, try blank lines, then single lines."""
+    parts = [p for p in re.split(r"^\s*#{3,}\s*$", text, flags=re.MULTILINE) if p.strip()]
+    if len(parts) > 1:
+        return parts
+    for pattern in (r"\n\s*\n", r"\n"):
+        parts = [p for p in re.split(pattern, parts[0] if parts else text) if p.strip()]
+        if len(parts) > 1:
+            return parts
+        text = parts[0] if parts else text
+    return parts or [text]
+
+
 def split_items(text):
-    """Split model output on lines containing only ###, dropping numbering, quotes and refusals."""
+    """Split model output into separate items, dropping numbering, quotes and refusals."""
     items = []
-    for part in re.split(r"^\s*#{3,}\s*$", text, flags=re.MULTILINE):
+    for part in _chunks(text):
         p = re.sub(r"^\s*\d+[.)]\s+", "", part.strip()).strip().strip('"').strip()
         if len(p) >= 12 and not REFUSAL.match(p):
             items.append(p)

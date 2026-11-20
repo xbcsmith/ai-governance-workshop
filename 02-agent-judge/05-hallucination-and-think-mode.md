@@ -296,7 +296,7 @@ hijacked call, as in lesson 2. Say so out loud.
   reasoning misreads the sentence, reword the sentence
 - It is not proof of why the verdict came out that way, so do not treat it as an
   audit trail
-- It makes a verdict easier to explain to a person, which matters when a human
+- It makes a verdict easier to explain to a human, which matters when a human
   must review a flag
 
 ## Check your understanding

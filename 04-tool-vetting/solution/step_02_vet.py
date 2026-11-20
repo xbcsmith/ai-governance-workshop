@@ -19,7 +19,7 @@ from llama_server import JUDGE_TOKENIZER_ID, JUDGE_URL, LlamaServer
 
 
 # --------------------------------------------------------------------------------------------
-# A mock tool catalog. "expect" is OUR label, used only for the scorecard.
+# A tool catalog. "expect" is OUR label, used only for the scorecard.
 # --------------------------------------------------------------------------------------------
 def tool(name, description, params):
     return {"type": "function", "function": {
@@ -125,8 +125,7 @@ def phase_vet(judge, catalog, think=False):
         if not blocked:
             approved[fn["name"]] = entry["tool"]
     if labelled:
-        print(f"\nScorecard: the judge matched our labels on {matches} of {labelled} tools "
-              f"(a tiny, hand-built sample, not an evaluation).")
+        print(f"\nScorecard: the judge matched our labels on {matches} of {labelled} tools.")
     return approved
 
 

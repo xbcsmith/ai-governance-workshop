@@ -1,5 +1,7 @@
 # Workshop Session: Guard an Agent with a Judge
 
+**OWASP Agentic Top 10 (2026):** ASI01 · ASI02
+
 ## Outline
 
 ### Understand the four gates
@@ -15,9 +17,9 @@ the verdict, and fails closed when it cannot.
 
 ### Build the agent, then guard it
 
-Build an unguarded agent with mock tools and watch an attack land. Then add the
-input and tool-call gates, and finally the tool-result and output gates, running
-the same scenarios each time.
+Build an unguarded agent with tools and watch an attack land. Then add the input
+and tool-call gates, and finally the tool-result and output gates, running the
+same scenarios each time.
 
 ### Catch bad calls and read the reasoning
 
@@ -34,7 +36,7 @@ latency is a real cost.
 
 Each lesson explains one idea, then has you add a few lines to a single script
 and run it. A finished checkpoint for every lesson is in `solution/`, so you can
-catch up at any point. The `demo/` folder has the full demo script for people
+catch up at any point. The `demo/` folder has the full demo script for humans
 who want to run it first and build later.
 
 ## Key Learning Objectives
@@ -46,6 +48,17 @@ who want to run it first and build later.
   judge needs the tool definitions
 - Use think mode to read the judge's reasoning, and say what it does not prove
 - State at least three limits of an LLM judge
+
+## OWASP Agentic Top 10 mapping
+
+Tags for this chapter, from the
+[OWASP Top 10 for Agentic Applications 2026](../01-intro/00-intro.md#owasp-top-10-for-agentic-applications-2026).
+Rows are listed in order of how central the risk is to the chapter.
+
+| ID    | Risk                         | How this chapter relates                                                                                                                    |
+| ----- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ASI01 | Agent Goal Hijack            | The input gate catches a jailbreak, and the tool-result gate catches instructions hidden in data the agent reads                            |
+| ASI02 | Tool Misuse and Exploitation | The tool-call gate blocks actions the user did not ask for, and the hallucination check catches calls that do not match a tool's definition |
 
 ## Files
 

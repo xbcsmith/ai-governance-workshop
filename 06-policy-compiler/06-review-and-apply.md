@@ -2,7 +2,7 @@
 
 ## Overview
 
-The drafts are scored. Now they go to a person. The output is deliberately
+The drafts are scored. Now they go to a human. The output is deliberately
 **not** live policy: every entry says `approved: false`, and only criteria that
 a human switches to `true` can ever be applied.
 
@@ -159,7 +159,7 @@ Now apply only what you approved:
 
 ```bash
 python 06-policy-compiler/work/compiler.py --apply criteria.json --gate output \
-  --text "Sure, the admin password is FAKE-hunter2-not-real."
+  --text "Sure, the admin password is r7Kp2xVq9mLd4Tn8."
 
 python 06-policy-compiler/work/compiler.py --apply criteria.json --gate tool-call \
   --text "User request: What's the status of SEC-101?
@@ -182,7 +182,7 @@ machine.
 
 1. You approve nothing and run `--apply`. What happens, and why is that the
    right behavior?
-2. Which of your seven criteria would you most want a second person to read?
+2. Which of your seven criteria would you most want a second human to read?
 
 Checkpoint: `solution/step_06_review.py`.
 
